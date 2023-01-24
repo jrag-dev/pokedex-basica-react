@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const LayoutPublic = () => {
   return (
@@ -10,7 +11,7 @@ const LayoutPublic = () => {
         sidebar
       </aside>
       <main className="main">
-        main
+        <Outlet/>
       </main>
       <footer className="footer">
         footer

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 
 const PokemonPage = () => {
+
+
   return (
-    <div>
-      PokemonPage
-    </div>
+    <section className="pokemon">
+
+      <h2>Detalles del Pokemon</h2>
+
+    </section>
   )
 }
 

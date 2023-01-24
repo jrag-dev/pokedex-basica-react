@@ -23,7 +23,14 @@ body {
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+}
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .app {
   margin: 0;
@@ -33,11 +40,10 @@ body {
   width: 100%;
 
   display: grid;
-  grid-template-rows: 60px 80px auto auto 80px;
+  grid-template-rows: 60px auto auto 80px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "header header header header"
-    "sidebar sidebar sidebar sidebar"
     "main main main main"
     "main main main main"
     "footer footer footer footer"
@@ -47,24 +53,25 @@ body {
 .header {
   grid-area: header;
   width: 100%;
-  background-color: red;
+  background-color: #454545;
 }
 
 .sidebar {
-  grid-area: sidebar;
-  background-color: yellow;
+  display: none;
 }
 
 .main {
   grid-area: main;
   width: 100%;
-  background-color: #213547;
+  background-color: #fafafa;
 }
 
 .footer {
   grid-area: footer;
   width: 100%;
   background-color: purple;
+  bottom: 0;
+  margin-top: 2rem;
 }
 
 
@@ -82,8 +89,8 @@ body {
     grid-template-rows: 60px auto auto 80px;
     grid-template-areas:
       "header header header header"
-      "sidebar main main main"
-      "sidebar main main main"
+      "main main main main"
+      "main main main main"
       "footer footer footer footer"
     ;
   }
@@ -106,7 +113,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.5em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;

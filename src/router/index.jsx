@@ -20,10 +20,10 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <PokemonPage/>,
+            element: <HomePage/>,
           },
           {
-            path: "/pokemon/detalles",
+            path: "/pokemon/:id",
             element: <PokemonPage/>,
           }
         ]
