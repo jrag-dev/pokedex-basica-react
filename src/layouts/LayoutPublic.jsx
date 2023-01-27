@@ -1,21 +1,21 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import HeaderComponent from '../components/HeaderComponent'
+import FilterBarraComponent from '../components/FilterBarraComponent'
 
 const LayoutPublic = () => {
   return (
     <div className="app">
       <header className="header">
-        header  
+        <HeaderComponent/>  
       </header>
+        <FilterBarraComponent/>
       <aside className="sidebar">
-        sidebar
+        Sidebar
       </aside>
-      <main className="main">
+      <main className="main container">
         <Outlet/>
       </main>
-      <footer className="footer">
-        footer
-      </footer>
     </div>
   )
 }

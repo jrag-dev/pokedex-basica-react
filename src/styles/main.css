@@ -32,6 +32,13 @@ img {
   margin: 0 auto;
 }
 
+.titulo {
+  text-align: center;
+  font-size: 1.7rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
 .app {
   margin: 0;
   padding: 0;
@@ -40,7 +47,7 @@ img {
   width: 100%;
 
   display: grid;
-  grid-template-rows: 60px auto auto 80px;
+  grid-template-rows: 70px auto auto 80px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "header header header header"
@@ -53,7 +60,7 @@ img {
 .header {
   grid-area: header;
   width: 100%;
-  background-color: #454545;
+  background-color: #ffffff;
 }
 
 .sidebar {
@@ -63,7 +70,6 @@ img {
 .main {
   grid-area: main;
   width: 100%;
-  background-color: #fafafa;
 }
 
 .footer {
@@ -86,7 +92,7 @@ img {
 
  @media screen and (min-width: 992px) {
   .app {
-    grid-template-rows: 60px auto auto 80px;
+    grid-template-rows: 70px auto auto 80px;
     grid-template-areas:
       "header header header header"
       "main main main main"
@@ -98,11 +104,7 @@ img {
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 h1 {
@@ -121,13 +123,8 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
+
 
 @media (prefers-color-scheme: light) {
   :root {

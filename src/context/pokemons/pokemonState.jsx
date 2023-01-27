@@ -13,7 +13,8 @@ const PokemonState = ({ children }) => {
 
   const initialState = {
     pokemons: [],
-    loading: true,
+    pokemon: null,
+    loading: false,
     error: null
   }
 
@@ -53,14 +54,14 @@ const PokemonState = ({ children }) => {
   }
 
 
-  const obtenerPokemon = async (name) => {
+  const obtenerPokemon = async (id) => {
 
     dispatch({
       type: OBTENER_POKEMON
     })
 
     try {
-      const resp = await clienteAxios.get(`/${name}`)
+      const resp = await clienteAxios.get(`/${id}`)
       console.log(resp.data)
       dispatch({
         type: OBTENER_POKEMON_SUCCESS,
@@ -77,9 +78,11 @@ const PokemonState = ({ children }) => {
 
   const datos = {
     pokemons: state.pokemons,
+    pokemon: state.pokemon,
     loading: state.loading,
     error: state.error,
-    obtenerPokemons
+    obtenerPokemons,
+    obtenerPokemon
   }
 
   return (

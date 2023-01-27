@@ -1,0 +1,54 @@
+@import '../variables.css';
+
+
+/* Container Filters */
+.container-filters {
+  background-color: red;
+	display: flex;
+	justify-content: center;
+
+	position: fixed;
+	left: -300px;
+	width: 300px;
+  top: 0;
+	color: var(--dark);
+	background-color: #f2f2f2;
+	height: 100vh;
+	padding-top: 100px;
+	transition: all 0.3s linear;
+  bottom: 0;
+}
+
+.container-filters.active {
+	left: 0;
+}
+
+.filter-by-type {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+  width: 60%;
+}
+
+.filter-by-type span {
+  font-weight: 700;
+	font-size: 22px;
+}
+
+.group-type {
+  display: flex;
+	gap: 10px;
+  align-items: center;
+	margin-left: 15px;
+  padding: 2px 0px;
+}
+
+.group-type label {
+	cursor: pointer;
+}
+
+.group-type:hover {
+  width: 100%;
+  padding: 2px 0px;
+  background-color: var(--yellow);
+}

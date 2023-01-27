@@ -17,8 +17,8 @@ const HomePage = () => {
 
 
   return (
-    <section className="home container">
-      <h2>Listado de Pokemones</h2>
+    <section className="home">
+      <h2 className="titulo">Listado de Pokemones</h2>
 
       <article className="pokemons">
         {

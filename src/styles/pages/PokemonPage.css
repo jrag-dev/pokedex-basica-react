@@ -1,0 +1,175 @@
+.pokemon-page {
+  padding: 1rem;
+}
+
+.poke-titulo {
+  display: flex;
+}
+
+.titulo {
+  margin-bottom: 0;
+}
+
+.poke-header {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 3rem;
+}
+
+.poke-id {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  color: #9c9ea1;
+  border: 2px solid #ccc;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poke-detalles {
+  padding: 1rem;
+}
+
+.poke-img {
+  width: 100%;
+}
+
+.poke-img img {
+  width: 100%;
+}
+
+.poke-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+
+.poke-fire {
+  border: 2px solid #f78504;
+  color: #f78504;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+.poke-flying {
+  border: 2px solid #14c3cf;
+  color: #14c3cf;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+
+.poke-grass {
+  border: 2px solid #2dc42d;
+  color: #2dc42d;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+.poke-poison {
+  border: 2px solid #b914b9;
+  color: #b914b9;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+
+.poke-water {
+  border: 2px solid #0870b6;
+  color: #0870b6;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+.poke-normal  {
+  border: 2px solid #8030b6;
+  color: #8030b6;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+.poke-bug  {
+  border: 2px solid #eb3a3a;
+  color: #eb3a3a;
+  padding: .25rem 1rem;
+  width: 100px;
+}
+
+
+
+/* Progress bar */
+
+progress {
+  width: 100%;
+  height: 1rem;
+  background-color: #ccc;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #ccc;
+}
+
+progress::-webkit-progress-value {
+  background-color: #2dc42d;
+}
+
+progress::-moz-progress-bar {
+  background-color: #666;
+}
+
+.progress {
+  margin: 1rem auto;
+}
+
+.progress > p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+/* MEdias queries para la pagina de pokemones */
+
+@media screen and (min-width: 768px) {
+
+  .poke-detalles {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .poke-header {
+    flex: 1;
+    border: none;
+  }
+  
+  .poke-estadisticas {
+    flex: 1;
+  }
+  .poke-id {
+    top: 0rem;
+    left: 0rem;
+  }
+  
+ }
