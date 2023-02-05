@@ -8,7 +8,7 @@ const FilterBarraComponent = () => {
     console.log('Check')
   }
 
-  let active = true;
+  let active = false;
 
   return (
     <div className={`container-filters ${active ? 'active' : ''}`}>

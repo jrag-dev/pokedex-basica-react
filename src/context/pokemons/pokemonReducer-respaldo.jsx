@@ -33,10 +33,10 @@ export default (state, action) => {
         error: false
       }
     case OBTENER_POKEMONS_SUCCESS:
-      console.log("REDUCER")
+      console.log("action.payload: ", action.payload)
+      console.log("state.pokemons: ", state.pokemons)
       return {
         ...state,
-        // pokemons: action.payload,
         pokemons: [...state.pokemons, ...action.payload],
         error: false,
         loading: false

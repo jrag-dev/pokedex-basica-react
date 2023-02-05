@@ -1,17 +1,36 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
 
 
 import "../styles/components/SearchComponent.css";
+import PokemonContext from '../context/pokemons/pokemonContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const SearchComponent = () => {
 
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState("")
 
-  const handleSubmit = () => {
-    console.log("Submit Form Search")
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (search.trim().length === '' ) {
+      return;
+    }
+
+    console.log(search)
+    
+
+    navigate("/pokemon/search", {
+      state: search
+    })
+
+
+    setSearch("")
+
   }
 
   return (

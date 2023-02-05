@@ -1,11 +1,11 @@
 @import '../variables.css';
 
 .search {
-  width: 300px;
+  width: 100%;
 }
 
 .form {
-  width: 100%;
+  width: 80%;
   position: relative;
   padding: 10px 15px;
 }
@@ -40,4 +40,17 @@
 .search-icon {
   width: 20px;
   background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .search {
+    width: 350px;
+  }
+  
+  .form {
+    width: 100%;
+    position: relative;
+    padding: 10px 15px;
+  }
+  
 }

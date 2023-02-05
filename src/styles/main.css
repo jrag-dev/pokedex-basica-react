@@ -39,6 +39,12 @@ img {
   margin-bottom: 2rem;
 }
 
+.loading {
+  padding: 1rem;
+  background-color: #fcdc2a;
+  margin: 2rem 0;
+}
+
 .app {
   margin: 0;
   padding: 0;
@@ -47,9 +53,10 @@ img {
   width: 100%;
 
   display: grid;
-  grid-template-rows: 70px auto auto 80px;
+  grid-template-rows: 70px 70px auto auto 80px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
+    "header header header header"
     "header header header header"
     "main main main main"
     "main main main main"
@@ -60,7 +67,6 @@ img {
 .header {
   grid-area: header;
   width: 100%;
-  background-color: #ffffff;
 }
 
 .sidebar {

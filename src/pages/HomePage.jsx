@@ -1,19 +1,27 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import PokemonContext from '../context/pokemons/pokemonContext'
 import PokemonComponent from '../components/PokemonComponent';
 
 import "../styles/pages/HomePage.css";
+import { obtenerPokemons, useStore } from '../store';
 
 
 const HomePage = () => {
 
-  const { pokemons, loading, error, obtenerPokemons } = useContext(PokemonContext);
+  const { pokemons, loading, error } = useStore( state => state)
+
+  const [offsetValor, setOffsetValor] = useState(0)
+
+  // const poke = useMemo(() => obtenerPokemons(offsetValor), [offsetValor])
+  // console.log(poke)
 
   useEffect(() => {
-    obtenerPokemons()
-  }, [])
+    console.log("USE EFFECT REDERIZO")
+    console.log("OFFSET: ", setOffsetValor)
+    obtenerPokemons(offsetValor)
+  }, [offsetValor])
 
-  if (loading) return <div className="loader">Loading...</div>;
+  if (loading) return <div className="loading">Cargando...</div>
 
 
   return (
@@ -27,13 +35,27 @@ const HomePage = () => {
           ) : (
             pokemons.map(pokemon => (
               <PokemonComponent
-                key={pokemon.id}
+                key={pokemon.name}
                 pokemon={pokemon}
               />
             ))
           )
         }
       </article>
+
+      <div className="container-load-mas">
+
+        {
+          pokemons.length > 0
+          ? (
+            <button className="btn-load-mas" onClick={() => setOffsetValor(offsetValor + 25)}>
+            Cargar más
+          </button>
+          ) : (
+            <div className="loading">Cargando...</div>
+          )
+        }
+      </div>
       
     </section>
   )

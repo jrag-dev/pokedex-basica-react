@@ -4,19 +4,19 @@ import PokemonContext from '../context/pokemons/pokemonContext';
 import { obtenerTipoPokemon, palabraCapitalize } from '../utils';
 
 import "../styles/pages/PokemonPage.css"
+import { obtenerPokemon, useStore } from '../store';
 
 const PokemonPage = () => {
 
   const { id } = useParams()
-  const { pokemon, loading, error, obtenerPokemon } = useContext(PokemonContext);
 
-  console.log(pokemon)
+  const { pokemon, loading, error } = useStore( state => state )
   
   useEffect(() => {
     obtenerPokemon(id)
   }, [])
   
-  if (loading) return <div>Loading...</div>
+  if (loading) return <div className="loading">Loading...</div>
 
   return (
     <section className="pokemon-page">

@@ -5,3 +5,16 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.container-load-mas {
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.btn-load-mas {
+  width: 200px;
+  background-color: #f78504;
+  color: #FFF;
+}
+

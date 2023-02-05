@@ -4,7 +4,7 @@ import PokemonContext from "./pokemonContext"
 import pokemonReducer from "./pokemonReducer"
 import clienteAxios from "../../config/axios"
 
-import { CAMBIAR_OFFSET, OBTENER_POKEMON, OBTENER_POKEMONS, OBTENER_POKEMONS_ERROR, OBTENER_POKEMONS_GLOBAL, OBTENER_POKEMONS_GLOBAL_ERROR, OBTENER_POKEMONS_GLOBAL_SUCCESS, OBTENER_POKEMONS_SUCCESS, OBTENER_POKEMON_ERROR, OBTENER_POKEMON_SUCCESS, OBTENER_TERMINO_ERROR, OBTENER_TERMINO_SUCCESS } from "../../types"
+import { CAMBIAR_OFFSET, OBTENER_POKEMON, OBTENER_POKEMONS, OBTENER_POKEMONS_ERROR, OBTENER_POKEMONS_GLOBAL, OBTENER_POKEMONS_GLOBAL_ERROR, OBTENER_POKEMONS_GLOBAL_SUCCESS, OBTENER_POKEMONS_SUCCESS, OBTENER_POKEMON_ERROR, OBTENER_POKEMON_SEARCH_ERROR, OBTENER_POKEMON_SEARCH_SUCCESS, OBTENER_POKEMON_SUCCESS, OBTENER_TERMINO_ERROR, OBTENER_TERMINO_SUCCESS } from "../../types"
 
 
 
@@ -14,6 +14,7 @@ const PokemonState = ({ children }) => {
   const initialState = {
     pokemons_global: [],
     pokemons: [],
+    offset: 0,
     pokemon: null,
     search: "",
     loading: false,
@@ -48,7 +49,6 @@ const PokemonState = ({ children }) => {
 
       const result = await Promise.all(pokes)
 
-
       dispatch({
         type: OBTENER_POKEMONS_GLOBAL_SUCCESS,
         payload: result
@@ -62,14 +62,12 @@ const PokemonState = ({ children }) => {
     }
   }
 
-  const obtenerPokemons = async (limit=25, offset) => {
+  const obtenerPokemons = async (limit, offset) => {
 
     console.log({
       "limit": limit,
       "offset": offset
     })
-
-    console.log("STATE")
 
     dispatch({
       type: OBTENER_POKEMONS
@@ -138,12 +136,41 @@ const PokemonState = ({ children }) => {
     }
   }
 
+  // TODO: Cargar más pokemones
+  const onClickLoadMore = async (limit, offset) => {
+    dispatch({
+      type: OBTENER_POKEMONS
+    })
+
+    try {
+      const resp = await clienteAxios.get(`?limit=${limit}&offset=${offset}`)
+
+      const pokes = resp.data.results.map( async (pokemon) => {
+        const respuesta = await clienteAxios.get(pokemon.url)
+        return await respuesta.data
+      })
+
+      const result = await Promise.all(pokes)
+
+      dispatch({
+        type: OBTENER_POKEMONS_SUCCESS,
+        payload: result
+      })
+
+    } catch (error) {
+      console.log(error)
+      dispatch({
+        type: OBTENER_POKEMONS_ERROR
+      })
+    }
+  }
 
 
   const datos = {
     pokemons_global: state.pokemons_global,
     pokemons: state.pokemons,
     pokemon: state.pokemon,
+    offset: state.offset,
     pokemon_search: state.pokemon_search,
     loading: state.loading,
     error: state.error,
@@ -151,6 +178,7 @@ const PokemonState = ({ children }) => {
     obtenerPokemons,
     obtenerPokemon,
     searchTerm,
+    onClickLoadMore,
     cambiarOffset
   }
 
